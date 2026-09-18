@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="شجره‌نامه خانوادگی مرادی">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="شجره مرادی">
+<link rel="stylesheet" href="css/theme.css">
+
+<title>شجره نامه نوشیروانزهی</title>
+
+<style>
+:root{
+  --topTabBorderS:1px;
+  --back:linear-gradient(180deg,#5c3d17,#4a3010);
+  --text:#333;
+  --text2:#e0e0e0;
+  --backpeople:radial-gradient(circle at 20% 20%, #f6ecd2 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, #fddd8a 0%, transparent 45%),
+    repeating-linear-gradient(45deg, #ecdcb0 0 2px, #e9d7a9 2px 4px),
+    #e9d7a9;
+  --black_back:#3f3f3f;
+  --ink:#3c2a14;
+
+  --animSelectCard:0.4s ease-out;
+  --card-w:108px;
+  --card-h:137px;
+  --liveBorderS:3px;
+  --familyHoleHeight:20px;
+  --selectShadowSize:0 10px 12px;
+  --borderCard:5px;
+
+  --female:#e4939a;
+  --male:#39a9bd;
+  --cardBack:#fff;
+  --navar:#000;
+  --dateColor:#ff0000;
+  --familyHole:#f0d98e;
+  --familyHoleColor:#5a3a13;
+  --hiatSize:65px;
+  --hiatColor:#050505;
+  --selectBack:#ffd699;
+  --selectBorder:#ffd000;
+  --selectShadow:rgba(184, 145, 47, 0.4);
+  --dateSelectColor:#705c00;
+  --live:#05fd1a;
+  --liveBorderC:#1d1d1d;
+
+  --gap-x:22px;
+  --gap-y:30px;
+  --lineSize:4px;
+  --tree-line:#030303;
+  --line:#c9cccf;
+
+  --topHeight:88px;
+  --topTab:#fff;
+  --topTabBorderC:#5a4510;
+  --topButton:#000;
+
+  --searchHeight:74px;
+  --searchBorderS:1px;
+  --searchBorderC:#d2d3d4;
+  --searchBack:#b8912f;
+  --searchResBack:#ffe699;
+  --searchSelect:#27292b;
+  --searchSpace:#a79549;
+
+  --nameFontSize:25px;
+  --fontSize:14px;
+  --widthDW:430px;
+  --drawer-w:430px;
+  --sizePic:90px;
+  --sizePicFamily:60px;
+  --animCloseTime:all 0.4s ease-in;
+
+  --backDW:#fff;
+  --backAllDW:rgba(0,0,0,0.295);
+  --titleBackDW:#a7a7a7;
+  --buttomBackDW:#f3f4f5;
+  --textDW:#000;
+  --textColorDW:#7a5000;
+  --nameColorDW:#1d1d1d;
+  --hiatColorDW:#ff0000;
+  --detailColorDW:#533d00;
+  --lineDW:#e48a03;
+  --closeColor:transparent;
+  --closeColorHover:#d41212;
+  --picColor:#7c4949;
+  --realColorDW:#c45800;
+
+  --jadHight:80px;
+  --buttonColor:#f88d00;
+  --buttonBlackBack:#000;
+  --buttonBlack:#dadada;
+  --buttonWhiteBack:#d4dae4;
+  --buttonWhite:#2c2c2c;
+  --childButtonBack:#fff;
+  --childButtonColor:#000000;
+  --childButtonSize:34px;
+  --childButtonBorderSize:3px;
+  --childButtonBorderColor:#c9cdd2;
+  --jadSpace:#f88d00;
+  --jadAvad:#ff3300;
+}
+</style>
+
+<style>
+*{box-sizing:border-box}
+html,body{
+  margin:5px;height:100%;
+  font-family:"Vazirmatn","Segoe UI",Tahoma,sans-serif;
+  -webkit-tap-highlight-color:transparent;
+  padding:0;background:var(--back);color:var(--ink);
+  overflow: hidden;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+
+/* ===== Top bar ===== */
+.topbar{
+  height:var(--topHeight);background:var(--topTab);
+  border-bottom:var(--topTabBorderS) solid var(--topTabBorderC);
+  display:flex;align-items:center;padding:0 22px;gap:18px;
+  position:relative;z-index:20;
+}
+.menu-btn{
+  border:0;background:transparent;font-size:34px;
+  color:var(--buttonBlackBack);line-height:1;width:48px;
+}
+.tree-title{font-size:27px;font-weight:500;flex:1}
+.tree-menu-btn{border:0;background:transparent;font-size:29px;color:var(--topButton)}
+
+/* ===== Search ===== */
+.searchbar{
+  height:var(--searchHeight);background:var(--searchBack);
+  border-bottom:var(--searchBorderS) solid var(--searchBorderC);
+  display:flex;align-items:center;gap:12px;padding:0 18px;
+  position:relative;z-index:19;
+}
+.search-box{position:relative;flex:1;max-width:50%}
+.search-symbol{
+  position:absolute;right:10px;top:50%;transform:translateY(-60%);
+  font-size:34px;color:var(--buttonBlackBack);line-height:1;pointer-events:none;
+}
+#searchInput{
+  width:100%;height:50px;border:0;padding:0 48px 0 12px;
+  outline:none;font-size:18px;color:var(--text);
+}
+.search-results{
+  position:absolute;top:54px;right:0;
+  width:min(520px,100vw - 32px);
+  border:1px solid #ddd;border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.295);
+  color:var(--text);overflow:hidden;background:var(--searchResBack);
+  max-height:60vh;overflow-y:auto;
+}
+.search-results button{
+  width:100%;border:0;border-bottom:1px solid var(--searchSpace);
+  background:var(--selectBack);padding:11px 14px;text-align:right;
+  display:flex;justify-content:space-between;gap:12px;color:var(--text);
+}
+.search-results button:hover{background:var(--searchSelect);color:var(--searchBorderC)}
+.search-results .relation{font-size:12px;font-weight:bold}
+.search-results .empty{padding:15px;color:var(--text)}
+
+.small-control{
+  height:42px;border:0;background:var(--buttonWhiteBack);
+  color:var(--buttonBlackBack);font-size:18px;padding:0 8px;
+}
+.gear{
+  font-size:27px;border:1px solid var(--buttonWhite);
+  border-right:4px solid var(--topButton);
+  background:var(--buttonWhiteBack);padding-right:18px;
+  color:var(--buttonWhite);transition:0.4s ease-in-out;
+}
+.gear:hover{
+  border:2px solid var(--buttonBlack);border-right:4px solid var(--buttonColor);
+  background:var(--buttonBlackBack);color:var(--buttonBlack);
+}
+.round-add{
+  width:48px;height:48px;border:2px dotted #777;border-radius:50%;
+  background:#d41212;font-size:31px;color:#00ff95;
+}
+.research{color:#b45b25;font-size:14px;margin-top:13px}
+
+.section-title{
+  font-size:var(--fontSize);color:var(--textDW);margin-bottom:14px;
+  display:flex;justify-content:space-between;background:var(--titleBackDW);padding:10px;
+}
+.add-media{color:#c76528;font-size:15px}
+.note{
+  font-size:var(--fontSize);line-height:1.8;color:var(--textDW);
+  background:var(--titleBackDW);padding:10px;border-radius:8px;
+}
+
+@media(max-width:700px){
+  :root{
+    --card-w:104px;--card-h:133px;--gap-x:18px;--gap-y:34px;
+  }
+  .topbar{height:88px;padding:0 16px;gap:9px}
+  .tree-title{font-size:22px}
+  .menu-btn{font-size:31px}
+  .searchbar{height:74px;padding:0 12px;gap:5px}
+  .small-control{display:none}
+  .gear{display:block;border:0;padding:0;font-size:24px}
+  .search-results{width:calc(100vw - 24px)}
+  .topbar{padding-top:env(safe-area-inset-top);height:calc(88px + env(safe-area-inset-top))}
+  .tree-tools{bottom:calc(18px + env(safe-area-inset-bottom))}
+  .tree-viewport{height:calc(100dvh - 162px);padding-bottom:env(safe-area-inset-bottom)}
+  .tree-canvas{padding:40px 55px 130px}
+  .tree-root{gap:35px}
+}
+
+.children-panel[hidden]{display:none !important}
+.active{background:#047dee;color:#00ff95;fill:#4a3010}
+
+/* ===== Tree viewport ===== */
+.tree-viewport{
+  height:calc(100dvh - 162px);overflow:auto;position:relative;
+  cursor:grab;background:var(--backpeople);touch-action:none;
+  overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+}
+.tree-viewport.grabbing{cursor:grabbing}
+.tree-canvas{
+  display:inline-block;min-width:100%;
+  padding:54px 100px 140px;transform-origin:top center;
+  position:relative;
+}
+.tree-root{
+  display:flex;justify-content:center;align-items:flex-start;
+  gap:54px;width:max-content;min-width:100%;margin:auto;
+  position:relative;z-index:1;
+}
+.subtree{display:flex;flex-direction:column;align-items:center}
+.person-row{display:flex;justify-content:center;position:relative}
+
+/* ===== Person card ===== */
+.person-card{
+  width:var(--card-w);min-height:var(--card-h);
+  background:var(--cardBack);border:var(--borderCard) solid var(--male);
+  border-radius:6px;padding:9px 6px 7px;position:relative;
+  text-align:center;box-shadow:0 2px 7px #00000012;
+  cursor:pointer;transition:.15s;z-index:10;
+}
+.person-card.female{border-color:var(--female)}
+.person-card:hover,.person-card.selected{
+  box-shadow:0 5px 16px #0002;transform:translateY(-2px);
+}
+.person-card .alive{
+  position:absolute;top:7px;right:6px;width:13px;height:13px;
+  border-radius:50%;background:var(--live);
+  border:var(--liveBorderS) solid var(--liveBorderC);
+  box-shadow:0 3px 5px #0003;
+}
+.person-card .couple-mark{
+  position:absolute;top:-10px;right:3px;width:20px;height:12px;
+  display:flex;gap:2px;
+}
+.person-card .couple-mark i{
+  width:9px;height:9px;background:#91a0b5;border-radius:2px;
+}
+
+.family-role-label{
+  position:absolute;top:-12%;right:-20%;padding:2px 7px;
+  border-radius:9px;background:var(--familyHole);
+  border:3px solid var(--familyHoleColor);color:var(--familyHoleColor);
+  font-size:10px;font-weight:1000;transition:0.4s ease-in-out;
+  min-height:var(--familyHoleHeight);z-index:2;
+}
+.family-hiat-label{
+  position:absolute;left:0%;top:0%;
+  height:var(--hiatSize);width:var(--hiatSize);
+  margin-bottom:1px;background:transparent;
+  clip-path:polygon(0 0, 100% 0, 0 100%);
+}
+.family-hiat-label::before{
+  content:"";width:15px;height:80px;background:var(--hiatColor);
+  position:absolute;top:-25%;left:19%;z-index:0;
+  rotate:45deg;overflow:hidden;
+  box-shadow:5px -4px 8px 0px #000000b3;
+}
+
+/* ===== Union / couple ===== */
+.unions-container{
+  display:flex;align-items:flex-start;justify-content:center;
+  gap:55px;padding-top:var(--gap-y);top:-28px;position:relative;
+}
+.union-block{
+  position:relative;min-width:calc(var(--card-w) * 2 + 25px);
+  display:flex;flex-direction:column;align-items:center;
+}
+.union-block-inner{display:flex;flex-direction:column;align-items:center}
+.couple{display:flex;align-items:center;direction:ltr}
+
+.marriage-link{
+  width:var(--childButtonSize);height:var(--childButtonSize);
+  border:var(--childButtonBorderSize) solid var(--childButtonBorderColor);
+  border-radius:50%;background:var(--childButtonBack);
+  color:var(--childButtonColor);top:-9px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  padding:0;cursor:pointer;flex:0 0 34px;
+  box-shadow:0 1px 4px #0001;z-index:1;transition:1s;
+}
+.marriage-link:before{
+  content:"";position:absolute;left:-5px;right:-5px;top:-30%;
+  height:var(--lineSize);background:var(--tree-line);z-index:-10;
+}
+.marriage-link .has-children{color:#047dee}
+.marriage-link:not(.has-children){cursor:hand}
+.marriage-link:not(.has-children) span{font-size:12px;color:#999}
+.marriage-link span{
+  font-size:22px;line-height:1;font-weight:400;color:var(--dateColor);
+}
+
+.spouse-slot{display:flex;align-items:center;position:relative}
+.children-panel{display:none;margin-top:7px}
+.union-block.children-open .children-panel{display:block;transition:all 1s ease-in-out}
+
+.children-row{
+  display:flex;justify-content:center;gap:var(--gap-x);
+  padding-top:var(--gap-y);position:relative;margin-top:5px;
+}
+.child-stub{
+  position:relative;display:flex;flex-direction:column;align-items:center;
+}
+
+.person-card.highlight{
+  background:var(--selectBack) !important;
+  border-color:var(--selectBorder) !important;
+  box-shadow:0 0 0 2px var(--selectBorder),
+    var(--selectShadowSize) var(--selectShadow) !important;
+  transform:scale(1.03);transition:all 0.4s ease;
+}
+
+/* ===== SVG connector layer ===== */
+.connector-layer{
+  position:absolute;top:0;left:0;
+  pointer-events:none;z-index:0;overflow:visible;
+}
+.connector-layer path{
+  fill:none;stroke:var(--tree-line);
+  stroke-width:var(--lineSize);
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* ===== Tree tools ===== */
+.tree-tools{
+  position:fixed;bottom:18px;left:18px;display:flex;align-items:center;
+  background:var(--buttonWhiteBack);border-radius:22px;
+  box-shadow:0 3px 12px #0002;overflow:hidden;z-index:15;
+}
+.tree-tools button{
+  border:0;background:var(--buttonWhiteBack);width:40px;height:40px;font-size:22px;
+}
+.tree-tools button[hidden]{display:none}
+.tree-tools span{
+  font-size:11px;color:var(--textColorDW);min-width:45px;text-align:center;
+}
+
+/* ===== Drawer ===== */
+.person-drawer{
+  position:fixed;top:0;right:0;width:min(var(--widthDW),100vw);
+  height:100vh;background:var(--backDW);z-index:41;
+  box-shadow:-6px 0 25px #0002;transform:translateX(105%);
+  transition:Transform 0.2s ease;color:var(--textDW);
+  overflow:auto;opacity:0;
+}
+.person-drawer.open{
+  background:var(--backDW);transform:translateX(0%);
+  transition:0.6s ease-in;opacity:1;
+}
+.drawer-backdrop{
+  position:fixed;inset:0;background:var(--backAllDW);z-index:40;
+}
+.drawer-backdrop[hidden]{display:none}
+.drawer-head{
+  height:52px;display:flex;align-items:center;
+  justify-content:flex-start;padding:0 18px;
+}
+.drawer-close{
+  border:0;background:var(--closeColor);font-size:39px;
+  color:var(--textDW);top:30px;line-height:1;position:relative;
+  scale:1;transition:var(--animCloseTime);
+}
+.drawer-close:hover{color:var(--closeColorHover);scale:1.2}
+.drawer-body{padding:0 28px 40px}
+
+.profile-head{
+  display:grid;grid-template-columns:94px 1fr;
+  gap:20px;align-items:center;padding:0 0 20px;
+}
+.profile-avatar{
+  width:var(--sizePic);height:var(--sizePic);border-radius:50%;
+  border:1px solid var(--picColor);display:flex;
+  align-items:center;justify-content:center;overflow:hidden;
+}
+.profile-avatar img{width:100%;height:100%;object-fit:cover}
+.profile-avatar svg{width:68px;height:68px;color:var(--picColor)}
+.profile-name{
+  font-size:var(--nameFontSize);font-weight:500;
+  margin-bottom:5px;color:var(--nameColorDW);
+}
+.profile-relation{
+  font-size:var(--fontSize);text-decoration:underline;
+  text-underline-offset:5px;
+}
+.profile-status{font-size:var(--fontSize);margin-top:9px;color:var(--hiatColorDW)}
+.profile-status b{font-size:20px;margin-left:8px}
+.profile-actions{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  border-bottom:1px solid var(--lineDW);padding:14px 0 20px;
+}
+.profile-action{
+  border:0;background:transparent;color:var(--detailColor);font-size:var(--fontSize);
+}
+.profile-action .ico{
+  display:flex;width:66px;height:66px;border-radius:50%;
+  background:var(--buttomBackDW);align-items:center;justify-content:center;
+  margin:0 auto 8px;font-size:28px;
+}
+.profile-section{border-bottom:1px solid var(--lineDW);padding:19px 0}
+
+.avatar{
+  width:var(--sizePicFamily);height:var(--sizePicFamily);
+  border-radius:50%;margin:0 auto;display:flex;
+  align-items:center;justify-content:center;
+  background:transparent;border:1px solid var(--picColor);overflow:hidden;
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar svg{width:40px;height:40px;color:var(--picColor)}
+.person-name{font-size:12px;line-height:1.35;min-height:20px}
+.person-family-label{font-size:12px;line-height:1.32;min-height:20px}
+.person-years{
+  font-size:11px;color:var(--dateColor);margin-top:1px;transition:0.4s;
+}
+.person-card:hover .person-years{font-size:14px;color:var(--dateSelectColor)}
+
+.family-item{display:flex;align-items:center;gap:13px;padding:9px 0;cursor:pointer}
+.mini-avatar{
+  width:var(--sizePicFamily);height:var(--sizePicFamily);
+  border-radius:50%;border:1px solid var(--picColor);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.mini-avatar img{width:100%;height:100%;object-fit:cover}
+.family-text{flex:1}
+.family-name{font-size:16px}
+.family-role{font-size:13px;color:var(--detailColorDW)}
+.family-arrow{font-size:30px;color:var(--buttonBlackBack)}
+
+.facts{
+  display:grid;grid-template-columns:90px 1fr;gap:13px 14px;font-size:var(--fontSize);
+}
+.facts .label{color:var(--text)}
+
+@media(max-width:700px){
+  .person-name{font-size:11px}
+  .person-years{font-size:10px}
+  .avatar{width:50px;height:50px}
+  .drawer-body{padding:0 22px 35px}
+  .profile-head{grid-template-columns:80px 1fr;gap:15px}
+  .profile-avatar{width:80px;height:80px}
+  .profile-name{font-size:20px}
+  .profile-actions{gap:8px}
+  .profile-action .ico{width:58px;height:58px}
+}
+
+/* ===== Ancestry bar ===== */
+#ancestry-bar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--backDW);padding:10px 20px;
+  border-bottom:2px solid var(--lineDW);
+  font-size:16px;color:var(--nameColorDW);
+  direction:rtl;text-align:right;
+  box-shadow:0 4px 8px rgba(0,0,0,0.295);
+  max-height:var(--jadHight);overflow-y:auto;
+  white-space:nowrap;transition:all 0.4s;
+  position:static;
+}
+#ancestry-bar strong{color:var(--jadAvad)}
+#ancestry-bar .sep{margin:0 8px;font-size:21px;color:var(--jadSpace)}
+#ancestry-bar .anc-side{
+  display:inline-block;padding:3px 9px;margin:0 4px;border-radius:9px;
+  background:var(--jadSpace);color:#fff;font-size:12px;font-weight:bold;
+}
+#ancestry-bar .anc-side.both{background:#047dee}
+
+.highlight .family-role-label{
+  transition:var(--animSelectCard);
+  background:var(--black_back);color:var(--text2);
+  border:2px solid var(--selectBorder);
+}
+.family-text .family-hiat{display:none}
+
+/* ===== Cross-branch button ===== */
+.goto-branch-btn{
+  position:absolute;top:-13px;left:-13px;
+  width:28px;height:28px;border-radius:50%;
+  background:var(--buttonColor);
+  border:2px solid var(--buttonBlackBack);
+  color:#fff;font-size:15px;padding:0;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  z-index:6;box-shadow:0 2px 6px rgba(0,0,0,.3);
+  font-family:inherit;transition:transform .2s,background .2s;
+}
+.goto-branch-btn:hover{transform:scale(1.18);background:#c96f00}
+
+/* ===== Gallery ===== */
+.gallery-open-btn{
+  width:100%;padding:12px;background:var(--buttonColor);color:#fff;
+  border:0;border-radius:10px;font-size:15px;font-family:inherit;
+  cursor:pointer;transition:background .2s;
+}
+.gallery-open-btn:hover{background:#c96f00}
+.gallery-modal{
+  position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.65);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.gallery-modal[hidden]{display:none}
+.gallery-content{
+  background:#fff;border-radius:14px;width:720px;max-width:92vw;
+  max-height:85vh;display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
+}
+.gallery-header{
+  padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid #e4e4e4;font-weight:bold;font-size:17px;color:var(--textDW);
+}
+.gallery-header button{
+  border:0;background:transparent;font-size:30px;line-height:1;color:#333;cursor:pointer;
+}
+.gallery-grid{
+  padding:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  gap:10px;overflow:auto;
+}
+.gallery-grid img{
+  width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;cursor:pointer;
+  transition:transform .2s;background:#eee;
+}
+.gallery-grid img:hover{transform:scale(1.05)}
+.gallery-viewer{
+  position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.94);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.gallery-viewer[hidden]{display:none}
+.gallery-viewer img{max-width:95vw;max-height:92vh;object-fit:contain;border-radius:6px}
+.gallery-viewer-close{
+  position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:50%;
+  background:#fff;border:0;font-size:28px;line-height:1;cursor:pointer;color:#000;font-weight:bold;
+}
+/* ========= Profile Photo Lightbox ========= */
+.photo-lightbox{
+  position:fixed;inset:0;z-index:400;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0);
+  pointer-events:none;
+  transition:background .4s ease;
+}
+.photo-lightbox.open{
+  background:radial-gradient(circle at center, rgba(0,0,0,.28) 0%, rgba(0,0,0,.78) 100%);
+  backdrop-filter:blur(9px);
+  -webkit-backdrop-filter:blur(9px);
+  pointer-events:auto;
+}
+.photo-lightbox img{
+  max-width:92vw;max-height:88vh;
+  object-fit:contain;
+  transform:scale(.25) translateY(60px) rotate(-4deg);
+  opacity:0;
+  transition:
+    transform .55s cubic-bezier(.18,.9,.28,1.25),
+    opacity .35s ease;
+  filter:drop-shadow(0 25px 55px rgba(0,0,0,.7));
+  user-select:none;-webkit-user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;
+}
+.photo-lightbox.open img{
+  transform:scale(1) translateY(0) rotate(0);
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* دکمه‌ی بستن */
+.photo-lightbox-close{
+  position:absolute;top:24px;left:24px;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(145deg,#ff9c2a 0%,#e05a00 100%);
+  border:2px solid rgba(255,255,255,.9);
+  color:#fff;font-size:26px;font-weight:700;line-height:1;
+  cursor:pointer;padding:0;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.5),
+    inset 0 -3px 6px rgba(0,0,0,.28),
+    inset 0 2px 4px rgba(255,255,255,.35);
+  opacity:0;transform:scale(.4) rotate(-120deg);
+  transition:
+    opacity .3s ease .18s,
+    transform .5s cubic-bezier(.2,.9,.3,1.5) .18s,
+    background .2s ease, box-shadow .2s ease;
+  font-family:inherit;
+}
+.photo-lightbox.open .photo-lightbox-close{
+  opacity:1;transform:scale(1) rotate(0);
+}
+.photo-lightbox-close:hover{
+  background:linear-gradient(145deg,#ffb148 0%,#ff7a00 100%);
+  box-shadow:
+    0 10px 26px rgba(255,120,0,.55),
+    inset 0 -3px 6px rgba(0,0,0,.3),
+    inset 0 2px 4px rgba(255,255,255,.4);
+}
+.photo-lightbox-close:active{
+  transform:scale(.9) rotate(0);
+}
+.photo-lightbox-close::before{
+  content:"";
+  position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.35);
+  opacity:0;transition:opacity .3s, transform .3s;
+  transform:scale(.85);
+  pointer-events:none;
+}
+.photo-lightbox-close:hover::before{
+  opacity:1;transform:scale(1);
+}
+
+/* نشانگر zoom روی آواتار پروفایل */
+.profile-avatar{cursor:zoom-in;transition:transform .25s ease, box-shadow .25s ease}
+.profile-avatar:hover{
+  transform:scale(1.07);
+  box-shadow:0 8px 22px rgba(0,0,0,.28);
+}
+.profile-avatar:active{transform:scale(.98)}
+
+
+
+
+</style>
+</head>
+<body>
+
+<div id="ancestry-bar"></div>
+
+<header class="topbar">
+  <button class="menu-btn" type="button" aria-label="منو">☰</button>
+  <div class="tree-title">شجره نامه خانوادگی طایفه نوشیروان زهی</div>
+  <button class="tree-menu-btn" type="button" aria-label="گزینه‌های شجره">⌄</button>
+</header>
+
+<section class="searchbar">
+  <div class="search-box">
+    <span class="search-symbol">⌕</span>
+    <input id="searchInput" type="search" placeholder="...یه نفر پیدا کن" autocomplete="off">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button id="viewCount" class="small-control" type="button">۵۰ +</button>
+  <button id="settingsBtn" class="small-control gear" type="button" aria-label="تنظیمات">⚙</button>
+</section>
+
+<main class="tree-viewport" id="treeViewport">
+  <div class="tree-canvas" id="treeCanvas">
+    <svg id="connectorLayer" class="connector-layer" aria-hidden="true"></svg>
+    <div class="tree-root" id="treeRoot"></div>
+  </div>
+</main>
+
+<div class="tree-tools">
+  <button id="zoomOutBtn" type="button">−</button>
+  <span id="zoomLabel">100%</span>
+  <button id="zoomInBtn" type="button">+</button>
+  <button id="resetViewBtn" type="button" aria-label="بازنشانی نما">⌂</button>
+  <button id="installBtn" type="button" hidden aria-label="نصب برنامه">⇩</button>
+</div>
+
+<aside class="person-drawer" id="personDrawer" aria-hidden="true">
+  <div class="drawer-head">
+    <button id="drawerClose" class="drawer-close" type="button" aria-label="بستن">×</button>
+  </div>
+  <div id="drawerBody" class="drawer-body"></div>
+</aside>
+<div id="drawerBackdrop" class="drawer-backdrop" hidden></div>
+
+<div class="gallery-modal" id="galleryModal" hidden>
+  <div class="gallery-content">
+    <div class="gallery-header">
+      <span id="galleryTitle">گالری</span>
+      <button id="galleryClose" id="photoLightboxClose" type="button" aria-label="بستن">✕</button>
+
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</div>
+<div class="gallery-viewer" id="galleryViewer" hidden>
+  <button class="gallery-viewer-close" id="galleryViewerClose" type="button" aria-label="بستن">×</button>
+  <img id="galleryViewerImg" src="" alt="">
+</div>
+ <div class="gallery-modal" id="galleryModal" hidden>...</div>
+  <div class="gallery-viewer" id="galleryViewer" hidden>...</div>
+
+  <!-- ⬇⬇⬇ LIGHTBOX باید اینجا باشد، قبل از تگ script -->
+  <div class="photo-lightbox" id="photoLightbox" hidden>
+    <button class="photo-lightbox-close" id="photoLightboxClose" type="button" aria-label="بستن">✕</button>
+    <img id="photoLightboxImg" src="" alt="">
+  </div>
+
+<!-- ========= Theme Manager ========= -->
+<div class="theme-bar" id="themeBar">
+  <div id="themeSwatches" style="display:flex;gap:7px;align-items:center"></div>
+  <button type="button" class="theme-circle theme-custom-open" id="customThemeBtn"
+          data-theme="custom" title="تم سفارشی">✎</button>
+</div>
+
+<div class="theme-custom-panel" id="customThemePanel" hidden>
+  <div class="theme-custom-header">
+    <span>🎨 تم سفارشی</span>
+    <button id="customThemeClose">×</button>
+  </div>
+  <div class="theme-custom-body">
+    <label>رنگ تاکید<input type="color" id="tc-accent" value="#f88d00"></label>
+    <label>پس‌زمینه<input type="color" id="tc-back" value="#5c3d17"></label>
+    <label>پس‌زمینه درخت<input type="color" id="tc-treeBg" value="#e9d7a9"></label>
+    <label>آبی مرد<input type="color" id="tc-male" value="#39a9bd"></label>
+    <label>صورتی زن<input type="color" id="tc-female" value="#e4939a"></label>
+    <label>خطوط درخت<input type="color" id="tc-line" value="#030303"></label>
+    <label>کارت<input type="color" id="tc-card" value="#ffffff"></label>
+    <label>متن<input type="color" id="tc-text" value="#333333"></label>
+  </div>
+  <div class="theme-custom-actions">
+    <button id="customThemeReset" class="secondary">بازنشانی</button>
+    <button id="customThemeSave">ذخیره</button>
+  </div>
+</div>
+<script src="JS/data.js"></script>
+<script>
+
+/* =========================================================
+   تبدیل ساختار تودرتو به ساختار تخت (people + marriages)
+   ========================================================= */
+const people = {};
+const marriages = [];
+const keyPaths = {};   // key → [personId, ...]
+const personKey = {};  // personId → key
+let _uid = 0;
+
+const _newId = p => p + (++_uid);
+
+function _normalize(o){
+  const female = o.gender === "f" || o.gender === "female";
+  const deceased = !!o.deceased || !!o.deathYear;
+  const aliveFromHiatZ = o.hiatZ === true;
+  return {
+    name: o.name || "نامعلوم",
+    family: o.family || "براهویی",
+    gender: female ? "female" : "male",
+    hiat: (deceased && !aliveFromHiatZ) ? "f" : "z",
+    birthYear: o.birthYear || "",
+    deathYear: o.deathYear || "",
+    photo: o.photo || "",
+    place: o.place || "نامعلوم",
+    note: o.note || "بدون شرح",
+    gallery: Array.isArray(o.gallery) ? o.gallery : [],
+  };
+}
+
+function _addNode(node){
+  const mainId = _newId("p");
+  people[mainId] = { ..._normalize(node), familyRole:"lineage" };
+  if (node.key){
+    personKey[mainId] = node.key;
+    (keyPaths[node.key] = keyPaths[node.key] || []).push(mainId);
+  }
+  let spouseId = null;
+  if (node.spouse){
+    spouseId = _newId("s");
+    people[spouseId] = { ..._normalize(node.spouse), familyRole:"spouse" };
+    if (node.spouse.key){
+      personKey[spouseId] = node.spouse.key;
+      (keyPaths[node.spouse.key] = keyPaths[node.spouse.key] || []).push(spouseId);
+    }
+  }
+  const childIds = (node.children || []).map(_addNode);
+  if (spouseId || childIds.length){
+    marriages.push({
+      id: _newId("m"),
+      spouses: spouseId ? [mainId, spouseId] : [mainId],
+      children: childIds,
+    });
+  }
+  return mainId;
+}
+
+const rootPersonIds = [_addNode(familyTree)];
+
+/* =========================================================
+   اسکریپت اصلی
+   ========================================================= */
+/* ---------- Lightbox عکس پروفایل ---------- */
+
+
+
+
+
+
+
+
+(function(){
+  "use strict";
+  let scale = 1, personCardEls = {}, expanded = new Set();
+  const $ = id => document.getElementById(id);
+
+  const getPerson = id => people[id] || {
+    name:"نامشخص",family:"براهویی",hiat:"z",gender:"male",
+    birthYear:"",deathYear:"",photo:"",place:"",note:"",
+    familyRole:"spouse",gallery:[]
+  };
+  const unionsOf  = id => marriages.filter(m => m.spouses?.includes(id));
+  const parentsOf = id => {
+    const out = [];
+    marriages.forEach(m => {
+      if (m.children?.includes(id)) m.spouses.forEach(p => { if(!out.includes(p)) out.push(p); });
+    });
+    return out;
+  };
+  const childrenOf = id => {
+    const out = [];
+    marriages.forEach(m => {
+      if (m.spouses?.includes(id)) m.children?.forEach(c => { if(!out.includes(c)) out.push(c); });
+    });
+    return out;
+  };
+  const otherSpouse = (m,id) => (m.spouses||[]).find(x => x !== id) || null;
+  const years = p => (p.birthYear || p.deathYear) ? `${p.birthYear||"?"}  —  ${p.deathYear||""}` : "";
+
+  // پیدا کردن شاخه‌ی دیگر برای پرش
+  function otherLocationOf(id){
+    const key = personKey[id];
+    if (!key) return null;
+    const locs = keyPaths[key];
+    if (!locs || locs.length < 2) return null;
+    const idx = locs.indexOf(id);
+    if (idx < 0) return null;
+    const next = locs[(idx + 1) % locs.length];
+    return next === id ? null : next;
+  }
+
+  function placeholderIcon(){
+    const d = document.createElement("div");
+    d.innerHTML = '<svg viewBox="0 0 80 80"><circle cx="40" cy="29" r="15" fill="currentColor"/><path d="M14 70c2-18 13-27 26-27s24 9 26 27" fill="currentColor"/></svg>';
+    return d.firstChild;
+  }
+  function avatar(p, profile=false){
+  const d = document.createElement("div");
+  d.className = profile ? "profile-avatar" : "avatar";
+  if (p.photo){
+    const img = document.createElement("img");
+    img.src = p.photo; img.alt = p.name;
+    img.onerror = () => { d.innerHTML = ""; d.appendChild(placeholderIcon()); };
+    d.appendChild(img);
+    // فقط روی آواتار پروفایل داخل drawer کلیک‌پذیر شود
+    if (profile){
+      d.addEventListener("click", e => {
+        e.stopPropagation();
+        openPhotoLightbox(p.photo);
+      });
+    }
+  } else d.appendChild(placeholderIcon());
+    return d;
+  }
+
+  /* ---------- ساخت کارت ---------- */
+  function buildCard(id, opts = {}){
+    const p = getPerson(id);
+    const card = document.createElement("div");
+    card.className = `person-card ${p.gender === "female" ? "female" : "male"}${opts.selected ? " selected" : ""}`;
+    card.dataset.personId = id;
+
+    if (p.hiat === "z"){
+      const live = document.createElement("span");
+      live.className = "alive";
+      card.appendChild(live);
+    }
+
+    if (unionsOf(id).length > 1){
+      const cm = document.createElement("span");
+      cm.className = "couple-mark";
+      cm.innerHTML = "<i></i><i></i>";
+      card.appendChild(cm);
+    }
+
+    // دکمه پرش بین شاخه‌ها
+    const other = otherLocationOf(id);
+    if (other){
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "goto-branch-btn";
+      btn.title = "رفتن به شاخه‌ی دیگر خانواده";
+      btn.setAttribute("aria-label","رفتن به شاخه دیگر");
+      btn.textContent = "⇆";
+      btn.addEventListener("click", e => {
+        e.preventDefault(); e.stopPropagation();
+        handleNavigate(other);
+      });
+      card.appendChild(btn);
+    }
+
+    const role = document.createElement("div");
+    role.className = "family-role-label";
+    role.textContent = p.familyRole === "spouse" ? "همسر" : "عضو شجره نامه";
+    card.appendChild(role);
+
+    if (p.hiat === "f"){
+      const hiat = document.createElement("div");
+      hiat.className = "family-hiat-label";
+      card.appendChild(hiat);
+    }
+
+    card.appendChild(avatar(p));
+
+    const n = document.createElement("div");
+    n.className = "person-name";
+    n.textContent = p.name;
+    card.appendChild(n);
+
+    const fam = document.createElement("div");
+    fam.className = "person-family-label";
+    fam.textContent = p.family;
+    card.appendChild(fam);
+
+    if (years(p)){
+      const y = document.createElement("div");
+      y.className = "person-years";
+      y.textContent = years(p);
+      card.appendChild(y);
+    }
+
+    card.addEventListener("click", () => openPerson(id));
+    card.tabIndex = 0;
+    personCardEls[id] = card;
+    return card;
+  }
+
+  /* ---------- رسم زیردرخت ---------- */
+  function renderSubtree(id, isRoot=false){
+    const sub = document.createElement("div");
+    sub.className = "subtree";
+    const unions = unionsOf(id);
+
+    if (!unions.length){
+      const row = document.createElement("div");
+      row.className = "person-row";
+      row.appendChild(buildCard(id,{isRoot}));
+      sub.appendChild(row);
+      return sub;
+    }
+
+    const container = document.createElement("div");
+    container.className = "unions-container";
+
+    unions.forEach(m => {
+      const block = document.createElement("div");
+      block.className = "union-block";
+      if (isRoot) block.classList.add("root-union");
+      block.dataset.marriageId = m.id;
+
+      const inner = document.createElement("div");
+      inner.className = "union-block-inner";
+      const couple = document.createElement("div");
+      couple.className = "couple";
+
+      couple.appendChild(buildCard(id,{isRoot}));
+
+      const line = document.createElement("button");
+      line.type = "button";
+      line.className = "marriage-link";
+      line.setAttribute("aria-label", m.children?.length ? "نمایش یا مخفی کردن فرزندان" : "بدون فرزند ثبت‌شده");
+
+      if (m.children?.length){
+          line.classList.add("has-children");
+          const isExpanded = expanded.has(m.id);
+          line.innerHTML = `<span>${isExpanded ? "−" : "+"}</span>`;
+          line.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+
+          line.addEventListener("click", e => {
+            e.preventDefault(); e.stopPropagation();
+            const panel = block.querySelector(".children-panel");
+            const isOpen = block.classList.contains("children-open");
+            if (isOpen){
+              block.classList.remove("children-open");
+              expanded.delete(m.id);
+              if (panel) panel.hidden = true;
+              line.querySelector("span").textContent = "+";
+              line.setAttribute("aria-expanded","false");
+            } else {
+              block.classList.add("children-open");
+              expanded.add(m.id);
+              if (panel) panel.hidden = false;
+              line.querySelector("span").textContent = "−";
+              line.setAttribute("aria-expanded","true");
+            }
+            requestAnimationFrame(drawConnectors);
+          });
+      } else {
+        line.innerHTML = "<span>♥</span>";
+        line.disabled = true;
+      }
+
+      couple.appendChild(line);
+
+      const sid = otherSpouse(m,id);
+      const slot = document.createElement("div");
+      slot.className = "spouse-slot";
+      if (sid) slot.appendChild(buildCard(sid));
+      couple.appendChild(slot);
+      inner.appendChild(couple);
+
+      if (m.children?.length){
+        const panel = document.createElement("div");
+        panel.className = "children-panel";
+        panel.hidden = !expanded.has(m.id);
+        const cr = document.createElement("div");
+        cr.className = "children-row" + (m.children.length === 1 ? " single" : "");
+        m.children.forEach(cid => {
+          const stub = document.createElement("div");
+          stub.className = "child-stub";
+          stub.appendChild(renderSubtree(cid,false));
+          cr.appendChild(stub);
+        });
+        panel.appendChild(cr);
+        inner.appendChild(panel);
+        if (expanded.has(m.id)) block.classList.add("children-open");
+      }
+
+      block.appendChild(inner);
+      container.appendChild(block);
+    });
+
+    sub.appendChild(container);
+    return sub;
+  }
+  /* ---------- Lightbox عکس پروفایل ---------- */
+function openPhotoLightbox(url){
+  if (!url) return;
+  const lb  = document.getElementById("photoLightbox");
+  const img = document.getElementById("photoLightboxImg");
+  if (!lb || !img) return;
+  img.src = url;
+  lb.hidden = false;
+  void lb.offsetWidth;
+  requestAnimationFrame(() => lb.classList.add("open"));
+}
+
+function closePhotoLightbox(){
+  const lb  = document.getElementById("photoLightbox");
+  const img = document.getElementById("photoLightboxImg");
+  if (!lb || lb.hidden) return;
+  lb.classList.remove("open");
+  setTimeout(() => {
+    lb.hidden = true;
+    if (img) img.src = "";
+  }, 420);
+}
+
+// اتصال رویدادها بدون const اضافه — مستقیم داخل if
+(function bindLightboxEvents(){
+  const lbClose = document.getElementById("photoLightboxClose");
+  const lb      = document.getElementById("photoLightbox");
+  if (lbClose) lbClose.addEventListener("click", closePhotoLightbox);
+  if (lb) lb.addEventListener("click", function(e){
+    if (e.target.id === "photoLightbox") closePhotoLightbox();
+  });
+})();
+
+  function renderTree(){
+    const root = $("treeRoot");
+    root.innerHTML = "";
+    personCardEls = {};
+    (rootPersonIds||[]).forEach(id => root.appendChild(renderSubtree(id,true)));
+    if (!root.children.length){
+      root.innerHTML = '<div style="padding:50px;color:#777">هنوز فردی ثبت نشده است.</div>';
+    }
+    requestAnimationFrame(drawConnectors);
+  }
+
+  const toFa = n => String(n).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+  const escapeHTML = s => String(s??"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+
+  /* ==================================================
+     رسم خطوط اتصال با SVG
+     ================================================== */
+  function drawConnectors(){
+    const canvas = document.getElementById("treeCanvas");
+    const svg    = document.getElementById("connectorLayer");
+    if (!canvas || !svg) return;
+
+    const cRect = canvas.getBoundingClientRect();
+    const sc    = scale || 1;
+
+    const toLocal = el => {
+      const r = el.getBoundingClientRect();
+      return {
+        cx:     (r.left - cRect.left + r.width / 2) / sc,
+        top:    (r.top  - cRect.top) / sc,
+        bottom: (r.top  - cRect.top + r.height) / sc
+      };
+    };
+
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
+    svg.setAttribute("width",   w);
+    svg.setAttribute("height",  h);
+    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+
+    let d = "";
+
+    document.querySelectorAll(".union-block.children-open").forEach(block => {
+      if (!block.offsetParent) return;
+      const inner = block.querySelector(":scope > .union-block-inner");
+      if (!inner) return;
+
+      const link  = inner.querySelector(":scope > .couple > .marriage-link");
+      const panel = inner.querySelector(":scope > .children-panel");
+      if (!link || !panel || !link.offsetParent) return;
+
+      const pr = toLocal(link);
+      const px = pr.cx;
+      const py = pr.bottom;
+
+      const anchors = [];
+      panel.querySelectorAll(":scope > .children-row > .child-stub").forEach(stub => {
+        if (!stub.offsetParent) return;
+        const card = stub.querySelector(".person-card");
+        if (!card) return;
+        const cr = toLocal(card);
+        anchors.push({x: cr.cx, y: cr.top});
+      });
+
+      if (!anchors.length) return;
+
+      const minChildTop = Math.min(...anchors.map(a => a.y));
+
+      let busY = minChildTop - Math.max(16, (minChildTop - py) * 0.35);
+      if (busY < py + 10)         busY = py + 10;
+      if (busY > minChildTop - 6) busY = minChildTop - 6;
+
+      d += `M ${px} ${py} L ${px} ${busY} `;
+
+      const xs   = anchors.map(a => a.x);
+      const minX = Math.min(...xs, px);
+      const maxX = Math.max(...xs, px);
+      d += `M ${minX} ${busY} L ${maxX} ${busY} `;
+
+      anchors.forEach(a => { d += `M ${a.x} ${busY} L ${a.x} ${a.y} `; });
+    });
+
+    svg.innerHTML = d ? `<path d="${d}"/>` : "";
+  }
+
+/* ---------- نوار سلسله‌مراتب ---------- */
+function showAncestry(personId){
+  const ancestry = [];
+  let current = personId;
+  const visited = new Set();
+  while (current){
+    if (visited.has(current)) break;
+    visited.add(current);
+    const p = getPerson(current);
+    ancestry.push({ id: current, name: p.name, gender: p.gender });
+    const parents = parentsOf(current);
+    if (parents.length) current = parents[0];
+    else break;
+  }
+  ancestry.reverse();
+
+  const bar = $("ancestry-bar");
+  const key = personKey[personId];
+  const isCross = key && keyPaths[key] && keyPaths[key].length > 1;
+
+  // ====== تعیین نشان «از طرف پدر / از طرف مادر» ======
+  let badge = "";
+
+  if (isCross){
+    // عضوی که در دو شاخه مشترک است (مثل طاهره/ظاهر)
+    badge = '<span class="anc-side both">عضو در هر دو شاخه</span>';
+  } else {
+    const directParents = parentsOf(personId);
+    let sideGender = null;
+
+    if (directParents.length > 0){
+      // در _addNode: spouses = [mainId, spouseId]
+      // پس parents[0] همان عضو خطِ اصلی (lineage) است
+      sideGender = getPerson(directParents[0]).gender;
+    } else {
+      // فردی که والدی در درخت ندارد (همسرِ واردشده)
+      // از جنسیت همسرش استفاده می‌کنیم تا نشان بی‌معنا نشود
+      const u = unionsOf(personId)[0];
+      if (u){
+        const sp = otherSpouse(u, personId);
+        if (sp) sideGender = getPerson(sp).gender;
+      }
+    }
+
+    if (sideGender === "female"){
+      badge = '<span class="anc-side">از طرف مادر</span>';
+    } else if (sideGender === "male"){
+      badge = '<span class="anc-side">از طرف پدر</span>';
+    }
+  }
+
+  const parts = ancestry.map(it =>
+    it.id === personId
+      ? `<strong>${escapeHTML(it.name)}</strong>`
+      : escapeHTML(it.name)
+  );
+
+  bar.style.display = "block";
+  bar.style.minHeight = "50px";
+  bar.innerHTML = badge + " سلسله‌مراتب: " + parts.join(' <span class="sep">›</span> ');
+}
+
+  /* ---------- هایلایت ---------- */
+  function highlightAncestors(personId){
+    document.querySelectorAll(".person-card.highlight").forEach(el => el.classList.remove("highlight"));
+    const chain = [];
+    let current = personId;
+    const visited = new Set();
+    while (current){
+      if (visited.has(current)) break;
+      visited.add(current);
+      chain.push(current);
+      const parents = parentsOf(current);
+      if (parents.length) current = parents[0];
+      else break;
+    }
+    chain.forEach(id => {
+      const c = personCardEls[id];
+      if (c) c.classList.add("highlight");
+    });
+    return chain;
+  }
+
+  /* ---------- پنل شخص ---------- */
+  function openPerson(id){
+    const p = getPerson(id);
+    const body = $("drawerBody");
+    body.innerHTML = "";
+
+    highlightAncestors(id);
+    showAncestry(id);
+
+    const head = document.createElement("div");
+    head.className = "profile-head";
+    head.appendChild(avatar(p,true));
+
+    const info = document.createElement("div");
+    const parentNames = parentsOf(id).map(x => getPerson(x).name).join(" و ");
+    info.innerHTML = `
+      <div class="profile-name">${escapeHTML(p.name)}</div>
+      <div class="profile-relation">${parentsOf(id).length ? "فرزندِ " + escapeHTML(parentNames) : "پرونده خانوادگی"}</div>
+      <div class="profile-status">${p.deathYear || p.hiat === "f" ? "† متوفی" : "✦ زنده"}</div>
+      <div class="research">› درباره مورد این شخص تحقیق کنید</div>`;
+    head.appendChild(info);
+    body.appendChild(head);
+
+    /* خانواده */
+    const fam = document.createElement("section");
+    fam.className = "profile-section";
+    fam.innerHTML = '<div class="section-title"><span>اعضای خانواده　⌃</span></div>';
+    const related = [
+      ...unionsOf(id).map(m => otherSpouse(m,id)).filter(Boolean).map(x => [x,"همسر"]),
+      ...childrenOf(id).map(x => [x, getPerson(x).gender === "female" ? "دختر" : "پسر"]),
+      ...parentsOf(id).map(x => [x, getPerson(x).gender === "female" ? "مادر" : "پدر"]),
+    ];
+    const seen = new Set();
+    related.forEach(([rid,role]) => {
+      if (!rid || seen.has(rid)) return;
+      seen.add(rid);
+      const rp = getPerson(rid);
+      const item = document.createElement("div");
+      item.className = "family-item";
+
+      const av = document.createElement("div");
+      av.className = "mini-avatar";
+      if (rp.photo) av.innerHTML = `<img src="${escapeHTML(rp.photo)}" alt="">`;
+      else av.appendChild(placeholderIcon());
+      item.appendChild(av);
+
+      const t = document.createElement("div");
+      t.className = "family-text";
+      t.innerHTML = `
+        <div class="family-name">${escapeHTML(rp.name)}</div>
+        <div class="family-role">${role}</div>
+        <div class="family-hiat">${rp.gender}</div>`;
+      item.appendChild(t);
+
+      const ar = document.createElement("span");
+      ar.className = "family-arrow";
+      ar.textContent = "›";
+      item.appendChild(ar);
+
+      item.onclick = () => handleNavigate(rid);
+      fam.appendChild(item);
+    });
+    body.appendChild(fam);
+
+    /* حقایق */
+    const facts = document.createElement("section");
+    facts.className = "profile-section";
+    facts.innerHTML = '<div class="section-title"><span>حقایق　⌃</span></div>';
+    const grid = document.createElement("div");
+    grid.className = "facts";
+    grid.innerHTML = `
+      <div class="label">تولد</div><div>${escapeHTML(p.birthYear || "--")}</div>
+      <div class="label">وفات</div><div>${escapeHTML(p.deathYear || "--")}</div>
+      <div class="label">محل زندگی</div><div>${escapeHTML(p.place || "--")}</div>`;
+    facts.appendChild(grid);
+    if (p.note){
+      const n = document.createElement("div");
+      n.className = "note";
+      n.textContent = p.note;
+      facts.appendChild(n);
+    }
+    body.appendChild(facts);
+
+    /* گالری */
+    if (p.gallery && p.gallery.length){
+      const gal = document.createElement("section");
+      gal.className = "profile-section";
+      gal.innerHTML = '<div class="section-title"><span>گالری تصاویر　⌃</span></div>';
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "gallery-open-btn";
+      btn.textContent = `مشاهده ${toFa(p.gallery.length)} تصویر`;
+      btn.onclick = () => openGallery(p.gallery, p.name);
+      gal.appendChild(btn);
+      body.appendChild(gal);
+    }
+
+    $("personDrawer").classList.add("open");
+    $("drawerBackdrop").hidden = false;
+    setTimeout(() => $("drawerClose").focus(), 50);
+  }
+
+  function closePerson(){
+    $("personDrawer").classList.remove("open");
+    $("drawerBackdrop").hidden = true;
+  }
+
+  /* ---------- گالری ---------- */
+  function openGallery(urls, name){
+    const modal = $("galleryModal");
+    const grid = $("galleryGrid");
+    $("galleryTitle").textContent = `گالری ${name}`;
+    grid.innerHTML = "";
+    urls.forEach(url => {
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = name;
+      img.loading = "lazy";
+      img.onclick = () => openGalleryViewer(url);
+      grid.appendChild(img);
+    });
+    modal.hidden = false;
+  }
+  function closeGallery(){ $("galleryModal").hidden = true; }
+  function openGalleryViewer(url){
+    $("galleryViewerImg").src = url;
+    $("galleryViewer").hidden = false;
+  }
+  function closeGalleryViewer(){
+    $("galleryViewer").hidden = true;
+    $("galleryViewerImg").src = "";
+  }
+  $("galleryClose").onclick = closeGallery;
+  $("galleryModal").addEventListener("click", e => { if (e.target.id === "galleryModal") closeGallery(); });
+  $("galleryViewerClose").onclick = closeGalleryViewer;
+  $("galleryViewer").addEventListener("click", e => { if (e.target.id === "galleryViewer") closeGalleryViewer(); });
+
+  /* ---------- ناوبری ---------- */
+  function revealPath(id){
+    const queue = [id];
+    const visited = new Set();
+    while (queue.length){
+      const cur = queue.shift();
+      if (visited.has(cur)) continue;
+      visited.add(cur);
+      marriages.forEach(m => {
+        const isChild  = m.children?.includes(cur);
+        const isSpouse = m.spouses?.includes(cur);
+        if (isChild || isSpouse){
+          expanded.add(m.id);
+          m.spouses.forEach(s => { if (!visited.has(s)) queue.push(s); });
+        }
+      });
+    }
+    renderTree();
+  }
+
+  function scrollToPerson(id){
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const card = document.querySelector(`.person-card[data-person-id="${id}"]`);
+      const vp = $("treeViewport");
+      if (!card || !vp) return;
+      const cardRect = card.getBoundingClientRect();
+      const vpRect = vp.getBoundingClientRect();
+      const drawerW = window.innerWidth > 700
+        ? Math.min(window.innerWidth * 0.5, 430)
+        : 0;
+      const visibleWidth = vp.clientWidth - drawerW;
+      const cardCenterX = cardRect.left - vpRect.left + vp.scrollLeft + cardRect.width / 2;
+      const targetLeft = cardCenterX - visibleWidth / 2;
+      const targetTop = vp.scrollTop + (cardRect.top - vpRect.top) - (vp.clientHeight - cardRect.height) / 2;
+
+      vp.scrollTo({
+        left: Math.max(0, targetLeft),
+        top:  Math.max(0, targetTop),
+        behavior: "smooth"
+      });
+
+      card.classList.add("selected");
+      setTimeout(() => card.classList.remove("selected"), 2000);
+    }));
+  }
+
+  function handleNavigate(id){
+    revealPath(id);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      scrollToPerson(id);
+      openPerson(id);
+    }));
+  }
+
+  /* ---------- سرچ ---------- */
+  function runSearch(q){
+    q = q.trim().toLowerCase();
+    const box = $("searchResults");
+    box.innerHTML = "";
+    if (!q){ box.hidden = true; return; }
+
+    const matches = Object.keys(people).filter(id => {
+      const p = getPerson(id);
+      const par = parentsOf(id).map(x => getPerson(x).name).join(" ");
+      return [p.name, p.family, par].join(" ").toLowerCase().includes(q);
+    }).slice(0,15);
+
+    if (!matches.length){
+      box.innerHTML = '<div class="empty">فردی با این مشخصات پیدا نشد.</div>';
+      box.hidden = false;
+      return;
+    }
+
+    matches.forEach(id => {
+      const p = getPerson(id);
+      const b = document.createElement("button");
+      const parText = parentsOf(id).length
+        ? "والدین: " + parentsOf(id).map(x => getPerson(x).name).join(" و ")
+        : "بدون والدین ثبت‌شده";
+      b.innerHTML = `<span>${escapeHTML(p.name)}</span>
+                     <span class="relation">${escapeHTML(parText)}</span>`;
+      b.onclick = () => {
+        box.hidden = true;
+        $("searchInput").value = p.name;
+        revealPath(id);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          scrollToPerson(id);
+          openPerson(id);
+        }));
+      };
+      box.appendChild(b);
+    });
+    box.hidden = false;
+  }
+
+  /* ---------- Zoom ---------- */
+  function applyZoom(){
+    $("treeCanvas").style.transform = `scale(${scale})`;
+    $("zoomLabel").textContent = `${Math.round(scale * 100)}%`;
+  }
+  $("zoomInBtn").onclick = () => {
+    scale = Math.min(1.7, +(scale + .1).toFixed(2));
+    applyZoom(); drawConnectors();
+  };
+  $("zoomOutBtn").onclick = () => {
+    scale = Math.max(.55, +(scale - .1).toFixed(2));
+    applyZoom(); drawConnectors();
+  };
+  $("resetViewBtn").onclick = () => {
+    scale = 1; applyZoom();
+    $("treeViewport").scrollTo({
+      left: ($("treeViewport").scrollWidth - $("treeViewport").clientWidth) / 2,
+      top: 0, behavior: "smooth"
+    });
+    drawConnectors();
+  };
+
+  /* ---------- رویدادها ---------- */
+  $("searchInput").oninput = e => runSearch(e.target.value);
+  $("drawerClose").onclick = closePerson;
+  $("drawerBackdrop").onclick = closePerson;
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape"){
+      const lb = $("photoLightbox");
+      if (lb && !lb.hidden){ closePhotoLightbox(); return; }
+      const gv = $("galleryViewer");
+      if (gv && !gv.hidden){ closeGalleryViewer(); return; }
+      const gm = $("galleryModal");
+      if (gm && !gm.hidden){ closeGallery(); return; }
+      closePerson();
+    }
+  });
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".search-box")) $("searchResults").hidden = true;
+  });
+
+  /* Pan */
+  let drag = false, sx = 0, sy = 0, sl = 0, st = 0;
+  const vp = $("treeViewport");
+  vp.addEventListener("pointerdown", e => {
+    if (!e.isPrimary || e.target.closest("button,input,.person-card,.person-drawer,.goto-branch-btn")) return;
+    drag = true; vp.classList.add("grabbing");
+    vp.setPointerCapture?.(e.pointerId);
+    sx = e.clientX; sy = e.clientY; sl = vp.scrollLeft; st = vp.scrollTop;
+  });
+  vp.addEventListener("pointermove", e => {
+    if (!drag || !e.isPrimary) return;
+    e.preventDefault();
+    vp.scrollLeft = sl - (e.clientX - sx);
+    vp.scrollTop  = st - (e.clientY - sy);
+  });
+  const stopDrag = e => {
+    if (!drag) return;
+    drag = false; vp.classList.remove("grabbing");
+    if (e?.pointerId != null) vp.releasePointerCapture?.(e.pointerId);
+  };
+  vp.addEventListener("pointerup", stopDrag);
+  vp.addEventListener("pointercancel", stopDrag);
+  vp.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") stopDrag(e); });
+
+  /* PWA */
+  let deferredInstallPrompt = null;
+  const installBtn = $("installBtn");
+  window.addEventListener("beforeinstallprompt", e => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    installBtn.hidden = false;
+  });
+  installBtn.onclick = async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    try { await deferredInstallPrompt.userChoice; } catch(_){}
+    deferredInstallPrompt = null; installBtn.hidden = true;
+  };
+  window.addEventListener("appinstalled", () => {
+    deferredInstallPrompt = null; installBtn.hidden = true;
+  });
+
+  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")){
+    window.addEventListener("load", () => navigator.serviceWorker.register("./JS/sw.js", {scope:"./"}).catch(()=>{}));
+  }
+
+  /* ---------- شروع ---------- */
+  renderTree();
+  applyZoom();
+  showAncestry(rootPersonIds[0]);
+
+  window.addEventListener("resize", () => requestAnimationFrame(drawConnectors));
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(() => drawConnectors());
+  }
+  window.addEventListener("load", () => {
+    vp.scrollLeft = Math.max(0, (vp.scrollWidth - vp.clientWidth) / 2);
+    requestAnimationFrame(drawConnectors);
+  });
+})();
+/* ============ Theme Manager ============ */
+(function(){
+  const KEY = "shajareh-theme-v2";
+  const THEMES = {
+    classic:{label:"کلاسیک", swatch:"linear-gradient(135deg,#5c3d17,#f88d00)", ring:"#f88d00",
+      vars:{"--back":"linear-gradient(180deg,#5c3d17,#4a3010)",
+        "--backpeople":"radial-gradient(circle at 20% 20%,#f6ecd2 0%,transparent 45%),radial-gradient(circle at 80% 80%,#fddd8a 0%,transparent 45%),repeating-linear-gradient(45deg,#ecdcb0 0 2px,#e9d7a9 2px 4px),#e9d7a9",
+        "--ink":"#3c2a14","--text":"#333","--male":"#39a9bd","--female":"#e4939a",
+        "--buttonColor":"#f88d00","--jadSpace":"#f88d00","--tree-line":"#030303",
+        "--cardBack":"#fff","--topTab":"#fff","--topTabBorderC":"#5a4510",
+        "--searchBack":"#b8912f","--selectBack":"#ffd699","--selectBorder":"#ffd000",
+        "--familyHole":"#f0d98e","--familyHoleColor":"#5a3a13"}},
+    forest:{label:"جنگل", swatch:"linear-gradient(135deg,#1e4d2b,#7cc576)", ring:"#2e8b57",
+      vars:{"--back":"linear-gradient(180deg,#1e4d2b,#0d3b1e)",
+        "--backpeople":"radial-gradient(circle at 20% 20%,#eafbe4 0%,transparent 45%),radial-gradient(circle at 80% 80%,#c8efb8 0%,transparent 45%),#cde9bf",
+        "--ink":"#0e2c1a","--text":"#1e3a2a","--male":"#2e8b57","--female":"#f8b6c4",
+        "--buttonColor":"#2e8b57","--jadSpace":"#2e8b57","--tree-line":"#0d3b1e",
+        "--cardBack":"#f4fff2","--topTab":"#f7fff5","--topTabBorderC":"#2e8b57",
+        "--searchBack":"#7cc576","--selectBack":"#c8efb8","--selectBorder":"#7cc576",
+        "--familyHole":"#d6f0c9","--familyHoleColor":"#1e4d2b"}},
+    ocean:{label:"اقیانوس", swatch:"linear-gradient(135deg,#0b2545,#4a90d9)", ring:"#1e88e5",
+      vars:{"--back":"linear-gradient(180deg,#0b2545,#061a33)",
+        "--backpeople":"radial-gradient(circle at 20% 20%,#dceefc 0%,transparent 45%),radial-gradient(circle at 80% 80%,#b7d9f7 0%,transparent 45%),#bdd9f2",
+        "--ink":"#0b2545","--text":"#1b3a5c","--male":"#1e88e5","--female":"#ff80ab",
+        "--buttonColor":"#1e88e5","--jadSpace":"#1e88e5","--tree-line":"#0b2545",
+        "--cardBack":"#fff","--topTab":"#f5fbff","--topTabBorderC":"#1e88e5",
+        "--searchBack":"#4a90d9","--selectBack":"#c9e2f9","--selectBorder":"#4a90d9",
+        "--familyHole":"#c9e2f9","--familyHoleColor":"#0b2545"}},
+    sunset:{label:"غروب", swatch:"linear-gradient(135deg,#7b1e1e,#ff8c42)", ring:"#ff6b35",
+      vars:{"--back":"linear-gradient(180deg,#7b1e1e,#3d0d0d)",
+        "--backpeople":"radial-gradient(circle at 20% 20%,#ffe8cc 0%,transparent 45%),radial-gradient(circle at 80% 80%,#ffcba4 0%,transparent 45%),#ffd0a8",
+        "--ink":"#4a1a0a","--text":"#4a2410","--male":"#d35400","--female":"#e84393",
+        "--buttonColor":"#ff6b35","--jadSpace":"#ff6b35","--tree-line":"#4a1a0a",
+        "--cardBack":"#fff8f0","--topTab":"#fff5eb","--topTabBorderC":"#d35400",
+        "--searchBack":"#ff8c42","--selectBack":"#ffd9b8","--selectBorder":"#ff8c42",
+        "--familyHole":"#ffd9b8","--familyHoleColor":"#4a1a0a"}},
+    night:{label:"شب", swatch:"linear-gradient(135deg,#0a0e27,#7c9cff)", ring:"#7c9cff",
+      vars:{"--back":"linear-gradient(180deg,#0a0e27,#1a1a2e)",
+        "--backpeople":"radial-gradient(circle at 20% 20%,#2a2a3e 0%,transparent 45%),radial-gradient(circle at 80% 80%,#232337 0%,transparent 45%),#1a1a2e",
+        "--ink":"#d8deff","--text":"#c8cee0","--male":"#4dc0dd","--female":"#e97ba8",
+        "--buttonColor":"#7c9cff","--jadSpace":"#7c9cff","--tree-line":"#6a7ab8",
+        "--cardBack":"#232337","--topTab":"#0f1328","--topTabBorderC":"#7c9cff",
+        "--searchBack":"#2a2a4a","--selectBack":"#3a3a5a","--selectBorder":"#7c9cff",
+        "--familyHole":"#3a3a5a","--familyHoleColor":"#d8deff"}},
+    rose:{label:"رز", swatch:"linear-gradient(135deg,#831843,#f472b6)", ring:"#ec4899",
+      vars:{"--back":"linear-gradient(180deg,#831843,#5c0f2e)",
+        "--backpeople":"radial-gradient(circle at 20% 20%,#ffe0ec 0%,transparent 45%),radial-gradient(circle at 80% 80%,#ffc9dd 0%,transparent 45%),#ffcbdd",
+        "--ink":"#5c0f2e","--text":"#5c0f2e","--male":"#8e44ad","--female":"#e91e63",
+        "--buttonColor":"#ec4899","--jadSpace":"#ec4899","--tree-line":"#5c0f2e",
+        "--cardBack":"#fff5f9","--topTab":"#fce7f3","--topTabBorderC":"#ec4899",
+        "--searchBack":"#ec4899","--selectBack":"#fbcfe8","--selectBorder":"#ec4899",
+        "--familyHole":"#ffd6e5","--familyHoleColor":"#5c0f2e"}},
+    purple:{label:"بنفش", swatch:"linear-gradient(135deg,#2e1065,#a855f7)", ring:"#a855f7",
+      vars:{"--back":"linear-gradient(180deg,#2e1065,#1a0a3d)",
+        "--backpeople":"radial-gradient(circle at 20% 20%,#ede4ff 0%,transparent 45%),radial-gradient(circle at 80% 80%,#d8c8ff 0%,transparent 45%),#d8c8ff",
+        "--ink":"#2e1065","--text":"#2e1065","--male":"#6366f1","--female":"#d946ef",
+        "--buttonColor":"#a855f7","--jadSpace":"#a855f7","--tree-line":"#2e1065",
+        "--cardBack":"#f9f5ff","--topTab":"#f3e8ff","--topTabBorderC":"#a855f7",
+        "--searchBack":"#8b5cf6","--selectBack":"#e9d5ff","--selectBorder":"#a855f7",
+        "--familyHole":"#e9d5ff","--familyHoleColor":"#2e1065"}},
+    royal:{label:"مشکی طلایی", swatch:"linear-gradient(135deg,#000,#d4af37)", ring:"#d4af37",
+      vars:{"--back":"linear-gradient(180deg,#1a1a1a,#000)",
+        "--backpeople":"radial-gradient(circle at 20% 20%,#3a3320 0%,transparent 45%),radial-gradient(circle at 80% 80%,#2a2415 0%,transparent 45%),#1a1a1a",
+        "--ink":"#f0e0a8","--text":"#d4af37","--male":"#4dc0dd","--female":"#e8b4c8",
+        "--buttonColor":"#d4af37","--jadSpace":"#d4af37","--tree-line":"#d4af37",
+        "--cardBack":"#1a1a1a","--topTab":"#0a0a0a","--topTabBorderC":"#d4af37",
+        "--searchBack":"#2a2a2a","--selectBack":"#3a3320","--selectBorder":"#d4af37",
+        "--familyHole":"#3a3320","--familyHoleColor":"#f0e0a8"}}
+  };
+  const DEF = {accent:"#f88d00",back:"#5c3d17",treeBg:"#e9d7a9",male:"#39a9bd",
+    female:"#e4939a",line:"#030303",card:"#ffffff",text:"#333333"};
+  const IDS = ["accent","back","treeBg","male","female","line","card","text"];
+
+  function apply(vars){
+    Object.keys(vars).forEach(k => document.documentElement.style.setProperty(k, vars[k]));
+  }
+  function shade(hex, amt){
+    const n = parseInt(hex.slice(1), 16);
+    let r=(n>>16)&255, g=(n>>8)&255, b=n&255;
+    r = Math.max(0,Math.min(255,Math.round(r+amt*255)));
+    g = Math.max(0,Math.min(255,Math.round(g+amt*255)));
+    b = Math.max(0,Math.min(255,Math.round(b+amt*255)));
+    return "#" + [r,g,b].map(x => x.toString(16).padStart(2,"0")).join("");
+  }
+  function customVars(c){
+    return {
+      "--back":"linear-gradient(180deg,"+shade(c.back,.08)+","+shade(c.back,-.10)+")",
+      "--backpeople":"radial-gradient(circle at 20% 20%,"+shade(c.treeBg,.14)+" 0%,transparent 45%),radial-gradient(circle at 80% 80%,"+shade(c.treeBg,-.05)+" 0%,transparent 45%),"+c.treeBg,
+      "--ink":c.text,"--text":c.text,"--male":c.male,"--female":c.female,
+      "--buttonColor":c.accent,"--jadSpace":c.accent,"--tree-line":c.line,
+      "--cardBack":c.card,"--topTab":shade(c.back,.72),"--topTabBorderC":c.accent,
+      "--searchBack":c.accent,"--selectBack":shade(c.accent,.48),"--selectBorder":c.accent,
+      "--familyHole":shade(c.accent,.55),"--familyHoleColor":shade(c.accent,-.35)
+    };
+  }
+  function markActive(k){
+    document.querySelectorAll(".theme-circle").forEach(c => {
+      c.classList.toggle("active", c.dataset.theme === k);
+    });
+  }
+  function build(){
+    const wrap = document.getElementById("themeSwatches");
+    wrap.innerHTML = "";
+    Object.keys(THEMES).forEach(k => {
+      const t = THEMES[k];
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "theme-circle";
+      b.dataset.theme = k; b.title = t.label;
+      b.style.background = t.swatch;
+      b.style.setProperty("--ring", t.ring);
+      b.addEventListener("click", () => {
+        apply(t.vars); markActive(k);
+        try { localStorage.setItem(KEY, JSON.stringify({type:"preset",name:k})); } catch(_){}
+      });
+      wrap.appendChild(b);
+    });
+  }
+  function custom(save){
+    const colors = {};
+    IDS.forEach(id => {
+      const el = document.getElementById("tc-"+id);
+      if (el) colors[id] = el.value;
+    });
+    apply(customVars(colors));
+    markActive("custom");
+    if (save) try { localStorage.setItem(KEY, JSON.stringify({type:"custom",colors})); } catch(_){}
+  }
+  function load(){
+    let raw;
+    try { raw = localStorage.getItem(KEY); } catch(_){}
+    if (!raw){ markActive("classic"); return; }
+    try {
+      const d = JSON.parse(raw);
+      if (d.type === "preset" && THEMES[d.name]){ apply(THEMES[d.name].vars); markActive(d.name); }
+      else if (d.type === "custom" && d.colors){
+        apply(customVars(d.colors)); markActive("custom");
+        IDS.forEach(id => {
+          const el = document.getElementById("tc-"+id);
+          if (el) el.value = d.colors[id];
+        });
+      } else markActive("classic");
+    } catch(_){ markActive("classic"); }
+  }
+
+  build(); load();
+
+  const btn = document.getElementById("customThemeBtn");
+  const panel = document.getElementById("customThemePanel");
+  btn.addEventListener("click", () => { panel.hidden = !panel.hidden; });
+  document.getElementById("customThemeClose").onclick = () => { panel.hidden = true; };
+  IDS.forEach(id => {
+    const el = document.getElementById("tc-"+id);
+    if (el) el.addEventListener("input", () => custom(true));
+  });
+  document.getElementById("customThemeSave").onclick = () => {
+    custom(true);
+    const b = document.getElementById("customThemeSave");
+    b.textContent = "✓ ذخیره شد";
+    setTimeout(() => { b.textContent = "ذخیره"; }, 1200);
+  };
+  document.getElementById("customThemeReset").onclick = () => {
+    IDS.forEach(id => {
+      const el = document.getElementById("tc-"+id);
+      if (el) el.value = DEF[id];
+    });
+    custom(true);
+  };
+})();
+</script>
+
+
+<div class="photo-lightbox" id="photoLightbox" hidden>
+  <button class="photo-lightbox-close" id="photoLightboxClose" type="button" aria-label="بستن">✕</button>
+  <img id="photoLightboxImg" src="" alt="">
+</div>
+</body>
+</html>
